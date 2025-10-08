@@ -1,0 +1,53 @@
+[
+  {
+    "projectName": "Defect Reduction Initiative",
+    "investment": 150000,
+    "baselineDefects": 500,
+    "defectReduction": 35,
+    "reworkCost": 800,
+    "cycleTimeReduction": 10,
+    "productivityIncrease": 20,
+    "totalSavings": 185000,
+    "netBenefit": 35000,
+    "roi": 23.3,
+    "status": "Profitable project with positive ROI",
+    "defectSavings": 140000,
+    "productivityGains": 30000,
+    "timeSavings": 15000,
+    "date": "2024-10-08"
+  },
+  {
+    "projectName": "Process Optimization Project",
+    "investment": 200000,
+    "baselineDefects": 750,
+    "defectReduction": 25,
+    "reworkCost": 1200,
+    "cycleTimeReduction": 15,
+    "productivityIncrease": 30,
+    "totalSavings": 305000,
+    "netBenefit": 105000,
+    "roi": 52.5,
+    "status": "Excellent project with high ROI",
+    "defectSavings": 225000,
+    "productivityGains": 60000,
+    "timeSavings": 30000,
+    "date": "2024-10-07"
+  },
+  {
+    "projectName": "Quality Assurance Enhancement",
+    "investment": 80000,
+    "baselineDefects": 200,
+    "defectReduction": 50,
+    "reworkCost": 600,
+    "cycleTimeReduction": 5,
+    "productivityIncrease": 15,
+    "totalSavings": 70000,
+    "netBenefit": -10000,
+    "roi": -12.5,
+    "status": "Project with negative ROI",
+    "defectSavings": 60000,
+    "productivityGains": 12000,
+    "timeSavings": 4000,
+    "date": "2024-10-06"
+  }
+]

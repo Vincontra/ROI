@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Evaluation Dashboard for Lean Six Sigma Projects</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">ROI Evaluation Dashboard for Lean Six Sigma (LSS) Projects</h1>
+            <p class="header-subtitle">Quantifying ROI for Continuous Improvement in Software Development</p>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link">Reports</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Project Input Form -->
+            <section class="form-section">
+                <div class="card">
+                    <h2 class="card-title">Project Input Form</h2>
+                    <form id="roiForm" class="form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectName" class="form-label">Project Name</label>
+                                <input type="text" id="projectName" name="projectName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="investment" class="form-label">Investment Cost (₹)</label>
+                                <input type="number" id="investment" name="investment" class="form-input" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="baselineDefects" class="form-label">Baseline Defects</label>
+                                <input type="number" id="baselineDefects" name="baselineDefects" class="form-input" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="defectReduction" class="form-label">Defect Reduction (%)</label>
+                                <input type="number" id="defectReduction" name="defectReduction" class="form-input" min="0" max="100" step="0.1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reworkCost" class="form-label">Rework Cost per Defect (₹)</label>
+                                <input type="number" id="reworkCost" name="reworkCost" class="form-input" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cycleTimeReduction" class="form-label">Cycle Time Reduction (%)</label>
+                                <input type="number" id="cycleTimeReduction" name="cycleTimeReduction" class="form-input" min="0" max="100" step="0.1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productivityIncrease" class="form-label">Productivity Increase (%)</label>
+                                <input type="number" id="productivityIncrease" name="productivityIncrease" class="form-input" min="0" max="100" step="0.1" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Calculate ROI</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Results Dashboard -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">ROI Results Dashboard</h2>
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <h3 class="result-title">Total Cost Savings</h3>
+                            <div class="result-value" id="totalSavings">₹0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3 class="result-title">Net Benefit</h3>
+                            <div class="result-value" id="netBenefit">₹0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3 class="result-title">ROI</h3>
+                            <div class="result-value" id="roiPercentage">0%</div>
+                        </div>
+                        <div class="result-card">
+                            <h3 class="result-title">Status</h3>
+                            <div class="result-status" id="roiStatus">
+                                <span class="status-indicator" id="statusIndicator"></span>
+                                <span id="statusText">Neutral</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visual Analytics -->
+            <section id="chartsSection" class="charts-section" style="display: none;">
+                <div class="charts-grid">
+                    <div class="card">
+                        <h3 class="card-title">Before vs After Metrics</h3>
+                        <canvas id="beforeAfterChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Savings Contribution</h3>
+                        <canvas id="savingsChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Email Report -->
+            <section id="reportSection" class="report-section" style="display: none;">
+                <div class="card">
+                    <h2 class="card-title">Send Email Report</h2>
+                    <div class="report-actions">
+                        <div class="email-section">
+                            <input type="email" id="emailInput" class="form-input" placeholder="Enter your email address">
+                            <button id="sendEmail" class="btn btn-secondary">Send Email Report</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Table -->
+            <section class="history-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Project History</h2>
+                        <button id="clearHistory" class="btn btn-danger btn-small">Clear History</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>ROI (%)</th>
+                                    <th>Investment (₹)</th>
+                                    <th>Net Benefit (₹)</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody">
+                                <!-- History rows will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Developed by Your Name | Based on IEEE Paper on ROI for LSS in Software</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
