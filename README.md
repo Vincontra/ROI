@@ -2,7 +2,7 @@
 
 A comprehensive full-stack web application that enables users to input Lean Six Sigma project data, calculate ROI dynamically, visualize results, and generate shareable PDF/email reports for documentation.
 
-## 🚀 Features
+##  Features
 
 - **Interactive ROI Calculator**: Real-time calculation of Return on Investment for LSS projects
 - **Dynamic Visualizations**: Before/After metrics and savings breakdown charts using Chart.js
@@ -12,7 +12,7 @@ A comprehensive full-stack web application that enables users to input Lean Six 
 - **Responsive Design**: Modern, mobile-friendly interface with Poppins font
 - **Form Validation**: Comprehensive client and server-side validation
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - HTML5, CSS3, JavaScript (ES6+)
@@ -26,7 +26,7 @@ A comprehensive full-stack web application that enables users to input Lean Six 
 - JSON file storage for data persistence
 - CORS enabled for cross-origin requests
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - Node.js (v14 or higher)
 - npm or yarn package manager
@@ -77,7 +77,7 @@ Open your browser and navigate to:
 http://localhost:3000
 ```
 
-## 📊 How to Use
+##  How to Use
 
 ### 1. Input Project Data
 Fill out the form with your Lean Six Sigma project details:
@@ -108,7 +108,7 @@ Interactive charts show:
 View the last 10 ROI calculations in the history table, including:
 - Project name, ROI percentage, investment, net benefit, and date
 
-## 🧮 ROI Calculation Formula
+##  ROI Calculation Formula
 
 The application uses the following formula to calculate ROI:
 
@@ -122,7 +122,7 @@ Net Benefit = Total Savings - Investment
 ROI = (Net Benefit / Investment) × 100
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 roi-evaluation-dashboard/
@@ -180,7 +180,7 @@ Clear all project history.
 ### GET /api/health
 Health check endpoint.
 
-## 🎨 Design Features
+##  Design Features
 
 - **Color Palette**: Professional color scheme with dark blue (#0b132b), teal (#5bc0be) accents
 - **Typography**: Google Fonts Poppins for modern, readable text
@@ -188,7 +188,7 @@ Health check endpoint.
 - **Animations**: Smooth transitions, hover effects, and animated counters
 - **Accessibility**: Proper form labels, keyboard navigation, and semantic HTML
 
-## 🔒 Security Features
+## Security Features
 
 - Input validation on both client and server side
 - Email format validation
@@ -196,7 +196,7 @@ Health check endpoint.
 - Environment variable protection for sensitive data
 - Error handling and logging
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -208,7 +208,7 @@ Health check endpoint.
 ### Debug Mode
 Set `NODE_ENV=development` in your `.env` file for detailed error logging.
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -216,21 +216,19 @@ Set `NODE_ENV=development` in your `.env` file for detailed error logging.
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Based on IEEE Paper on ROI for Lean Six Sigma in Software Development
 - Chart.js for data visualization
 - jsPDF for PDF generation
 - Google Fonts for typography
 
-## 📞 Support
+## Support
 
 For support or questions, please create an issue in the repository or contact the development team.
 
 ---
-
-**Developed with ❤️ for Lean Six Sigma practitioners in software development**
